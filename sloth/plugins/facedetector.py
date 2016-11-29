@@ -1,5 +1,6 @@
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
+from PyQt5.QtWidgets import *
 from sloth.annotations.model import ImageModelItem
 from okapy import BinaryPatternFaceDetector
 
@@ -59,7 +60,7 @@ class FaceDetectorPlugin(QObject):
         self._sc.setEnabled(False)
         model = self._labeltool.model()
         n_images = model.rowCount()
-        self.progress = QProgressDialog("Detecting faces...", "Abort", 0, n_images, self._wnd);
+        self.progress = QProgressDialog("Detecting faces...", "Abort", 0, n_images, self._wnd)
         self.progress.setWindowModality(Qt.WindowModal)
         self.progress.show()
         self.thread = Worker(self._labeltool, det)

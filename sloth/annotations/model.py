@@ -6,8 +6,9 @@ import time
 import logging
 import copy
 from collections import MutableMapping
-from PyQt4.QtGui import QTreeView, QItemSelection, QItemSelectionModel, QSortFilterProxyModel, QBrush
-from PyQt4.QtCore import QModelIndex, QAbstractItemModel, Qt, pyqtSignal, QVariant
+from PyQt5.QtWidgets import QTreeView
+from PyQt5.QtCore import QModelIndex, QAbstractItemModel, Qt, pyqtSignal, QVariant, QItemSelection, QItemSelectionModel, QSortFilterProxyModel
+from PyQt5.QtGui import QBrush
 
 LOG = logging.getLogger(__name__)
 

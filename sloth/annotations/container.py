@@ -152,7 +152,7 @@ class AnnotationContainer:
         """
         fullpath = self._fullpath(filename)
         if not os.path.exists(fullpath):
-            LOG.warn("Image file %s does not exist." % fullpath)
+            LOG.warning("Image file %s does not exist." % fullpath)
             return None
 
         if _use_pil:
@@ -169,7 +169,7 @@ class AnnotationContainer:
         """
         fullpath = str(self._fullpath(filename))
         if not os.path.exists(fullpath) and not os.path.exists(fullpath.split('%')[0]):
-            LOG.warn("Video file %s does not exist." % fullpath)
+            LOG.warning("Video file %s does not exist." % fullpath)
             return None
 
         # get video source from cache or load from file
@@ -182,7 +182,7 @@ class AnnotationContainer:
 
         # get requested frame
         if not vidsrc.getFrame(frame_number):
-            LOG.warn("Frame %d could not be loaded from video source %s" % (frame_number, fullpath))
+            LOG.warning("Frame %d could not be loaded from video source %s" % (frame_number, fullpath))
             return None
 
         return vidsrc.getImage()

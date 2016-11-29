@@ -45,7 +45,7 @@ You can make use of this in the configuration to for example specify the color o
 created rectangles, maybe even different kinds for different label types::
 
     # this your custom configuration module
-    from PyQt4.Qt import *
+    from PyQt5.Qt import *
 
     RedRectItem = items.RectItem()
     RedRectItem.setColor(Qt.red)

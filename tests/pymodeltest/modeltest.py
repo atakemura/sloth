@@ -22,7 +22,7 @@
 #############################################################################
 
 import sip
-from PyQt4 import QtCore, QtGui
+from PyQt5 import QtCore, QtGui
 
 
 class ModelTest(QtCore.QObject):
@@ -194,7 +194,7 @@ class ModelTest(QtCore.QObject):
         assert(self.model.parent(QtCore.QModelIndex()) == QtCore.QModelIndex())
 
         if self.model.rowCount(QtCore.QModelIndex()) == 0:
-            return;
+            return
 
         # Column 0              | Column 1  |
         # QtCore.Qself.modelIndex()         |           |
@@ -300,11 +300,9 @@ class ModelTest(QtCore.QObject):
         """
         Store what is about to be inserted to make sure it actually happens
         """
-        c = {}
-        c['parent'] = parent
-        c['oldSize'] = self.model.rowCount(parent)
-        c['last'] = self.model.data(self.model.index(start-1, 0, parent))
-        c['next'] = self.model.data(self.model.index(start, 0, parent))
+        c = {'parent': parent, 'oldSize': self.model.rowCount(parent),
+             'last': self.model.data(self.model.index(start - 1, 0, parent)),
+             'next': self.model.data(self.model.index(start, 0, parent))}
         self.insert.append(c)
 
     def rowsInserted(self, parent, start, end):
@@ -328,11 +326,9 @@ class ModelTest(QtCore.QObject):
         """
         Store what is about to be inserted to make sure it actually happens
         """
-        c = {}
-        c['parent'] = parent
-        c['oldSize'] = self.model.rowCount(parent)
-        c['last'] = self.model.data(self.model.index(start-1, 0, parent))
-        c['next'] = self.model.data(self.model.index(end+1, 0, parent))
+        c = {'parent': parent, 'oldSize': self.model.rowCount(parent),
+             'last': self.model.data(self.model.index(start - 1, 0, parent)),
+             'next': self.model.data(self.model.index(end + 1, 0, parent))}
         self.remove.append(c)
 
     def rowsRemoved(self, parent, start, end):
@@ -371,7 +367,7 @@ class ModelTest(QtCore.QObject):
         those tests then this one
         """
         # First just try walking back up the tree.
-        p = parent;
+        p = parent
         while p.isValid():
             p = p.parent()
 

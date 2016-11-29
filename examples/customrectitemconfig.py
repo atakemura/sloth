@@ -1,5 +1,4 @@
-from PyQt4.QtGui import QPen
-from PyQt4.Qt import Qt
+from PyQt5.QtGui import QPen, QColor
 from sloth.items import RectItem
 
 
@@ -11,7 +10,7 @@ class CustomRectItem(RectItem):
         RectItem.__init__(self, *args, **kwargs)
 
         # set drawing pen to red with width 2
-        self.setPen(QPen(Qt.red, 2))
+        self.setPen(QPen(QColor.red(), 2))
 
 LABELS = (
     {

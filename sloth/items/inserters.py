@@ -1,6 +1,7 @@
 import math
-from PyQt4.QtGui import *
-from PyQt4.Qt import *
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
+from PyQt5.QtWidgets import *
 
 
 class ItemInserter(QObject):
@@ -116,8 +117,8 @@ class RectItemInserter(ItemInserter):
             horizontalHelpLine.setPen(self._helpLinesPen)
             verticalHelpLine.setPen(self._helpLinesPen)
 
-            group.addToGroup(verticalHelpLine);
-            group.addToGroup(horizontalHelpLine);
+            group.addToGroup(verticalHelpLine)
+            group.addToGroup(horizontalHelpLine)
 
             self._scene.addItem(self._helpLines)
         else:
