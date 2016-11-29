@@ -378,7 +378,10 @@ class MainWindow(QMainWindow):
         image_types = [ '*.jpg', '*.bmp', '*.png', '*.pgm', '*.ppm', '*.ppm', '*.tif', '*.gif' ]
         video_types = [ '*.mp4', '*.mpg', '*.mpeg', '*.avi', '*.mov', '*.vob' ]
         format_str = ' '.join(image_types + video_types)
-        fnames = QFileDialog.getOpenFileNames(self, "%s - Add Media File" % APP_NAME, path, "Media files (%s)" % (format_str, ))
+        fnames, _ = QFileDialog.getOpenFileNames(self,
+                                                 "%s - Add Media File" % APP_NAME,
+                                                 path,
+                                                 "Media files (%s)" % (format_str, ))
 
         item = None
         numFiles = len(fnames)
